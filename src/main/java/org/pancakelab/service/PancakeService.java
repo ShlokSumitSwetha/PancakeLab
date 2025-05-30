@@ -8,6 +8,7 @@ import org.pancakelab.model.constant.Ingredient;
 import org.pancakelab.model.pancake.Pancake;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -16,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class PancakeService {
 
 	/** List of pancakes in the system */
-	private final List<Pancake> pancakes = new ArrayList<>();
+	private final List<Pancake> pancakes = new CopyOnWriteArrayList<>();
 
 	/**
 	 * Adds multiple pancakes to an order and logs the action.
