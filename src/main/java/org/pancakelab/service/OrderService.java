@@ -6,6 +6,8 @@ import org.pancakelab.model.order.Order;
 import org.pancakelab.model.pancake.Pancake;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
 /**
@@ -14,8 +16,9 @@ import java.util.stream.Collectors;
  */
 public class OrderService {
 
-	private final List<Order> orders = new ArrayList<>();
-	private final Map<UUID, OrderStatus> orderStatusMap = new HashMap<>();
+	private final List<Order> orders = new CopyOnWriteArrayList<>();
+	private final Map<UUID, OrderStatus> orderStatusMap = new ConcurrentHashMap<>();
+
 
 	/**
 	 * Creates a new {@link Order} and registers it in the system.
